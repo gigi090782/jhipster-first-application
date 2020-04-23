@@ -1,0 +1,16 @@
+version: '2'
+services:
+  jhipsterfirstapplication-app:
+    image: jhipsterfirstapplication
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://jhipsterfirstapplication-mssql:1433;database=jhipsterFirstApplication
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+    ports:
+      - 8080:8080
+  jhipsterfirstapplication-mssql:
+    extends:
+      file: mssql.yml
+      service: jhipsterfirstapplication-mssql
