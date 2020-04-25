@@ -1,0 +1,9 @@
+{
+  "jhipsterFirstApplicationApp": {
+    "ChannelType": {
+      "null": "",
+      "VSP": "VSP",
+      "ONLINE": "ONLINE"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+    "name": "Contact",
+    "fields": [
+        {
+            "fieldName": "clientId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "contactType",
+            "fieldType": "ContactType",
+            "fieldValues": "Mobile,Email"
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "contact",
+            "relationshipName": "clientId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200425165700",
+    "entityTableName": "contact",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

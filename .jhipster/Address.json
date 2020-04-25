@@ -1,0 +1,38 @@
+{
+    "name": "Address",
+    "fields": [
+        {
+            "fieldName": "clientId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "addressType",
+            "fieldType": "AddressType",
+            "fieldValues": "Post,Registration"
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "address",
+            "relationshipName": "clientId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200425165600",
+    "entityTableName": "address",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

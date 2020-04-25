@@ -1,0 +1,10 @@
+{
+  "jhipsterFirstApplicationApp": {
+    "MarketPlaceType": {
+      "null": "",
+      "FOND": "FOND",
+      "OTC": "OTC",
+      "Currency": "Currency"
+    }
+  }
+}

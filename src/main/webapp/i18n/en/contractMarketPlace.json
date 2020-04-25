@@ -1,0 +1,25 @@
+{
+  "jhipsterFirstApplicationApp": {
+    "contractMarketPlace": {
+      "home": {
+        "title": "Contract Market Places",
+        "createLabel": "Create a new Contract Market Place",
+        "createOrEditLabel": "Create or edit a Contract Market Place",
+        "notFound": "No Contract Market Places found"
+      },
+      "created": "A new Contract Market Place is created with identifier {{ param }}",
+      "updated": "A Contract Market Place is updated with identifier {{ param }}",
+      "deleted": "A Contract Market Place is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Contract Market Place {{ id }}?"
+      },
+      "detail": {
+        "title": "Contract Market Place"
+      },
+      "contractId": "Contract Id",
+      "marketPlaceType": "Market Place Type",
+      "dateAdd": "Date Add",
+      "contractId": "Contract Id"
+    }
+  }
+}

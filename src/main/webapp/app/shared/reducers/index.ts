@@ -13,6 +13,26 @@ import password, { PasswordState } from 'app/modules/account/password/password.r
 import settings, { SettingsState } from 'app/modules/account/settings/settings.reducer';
 import passwordReset, { PasswordResetState } from 'app/modules/account/password-reset/password-reset.reducer';
 import sessions, { SessionsState } from 'app/modules/account/sessions/sessions.reducer';
+// prettier-ignore
+import client, {
+  ClientState
+} from 'app/entities/client/client.reducer';
+// prettier-ignore
+import address, {
+  AddressState
+} from 'app/entities/address/address.reducer';
+// prettier-ignore
+import contact, {
+  ContactState
+} from 'app/entities/contact/contact.reducer';
+// prettier-ignore
+import contract, {
+  ContractState
+} from 'app/entities/contract/contract.reducer';
+// prettier-ignore
+import contractMarketPlace, {
+  ContractMarketPlaceState
+} from 'app/entities/contract-market-place/contract-market-place.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 export interface IRootState {
@@ -27,6 +47,11 @@ export interface IRootState {
   readonly password: PasswordState;
   readonly settings: SettingsState;
   readonly sessions: SessionsState;
+  readonly client: ClientState;
+  readonly address: AddressState;
+  readonly contact: ContactState;
+  readonly contract: ContractState;
+  readonly contractMarketPlace: ContractMarketPlaceState;
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
 }
@@ -43,6 +68,11 @@ const rootReducer = combineReducers<IRootState>({
   password,
   settings,
   sessions,
+  client,
+  address,
+  contact,
+  contract,
+  contractMarketPlace,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar
 });

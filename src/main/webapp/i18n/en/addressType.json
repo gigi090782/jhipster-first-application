@@ -1,0 +1,9 @@
+{
+  "jhipsterFirstApplicationApp": {
+    "AddressType": {
+      "null": "",
+      "Post": "Post",
+      "Registration": "Registration"
+    }
+  }
+}
