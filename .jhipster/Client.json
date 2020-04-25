@@ -1,0 +1,52 @@
+{
+    "name": "Client",
+    "fields": [
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "birthDate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateAdd",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "address",
+            "otherEntityRelationshipName": "clientId",
+            "relationshipName": "address"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "contact",
+            "otherEntityRelationshipName": "clientId",
+            "relationshipName": "contact"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "contract",
+            "otherEntityRelationshipName": "clientId",
+            "relationshipName": "contract"
+        }
+    ],
+    "changelogDate": "20200425165500",
+    "entityTableName": "client",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

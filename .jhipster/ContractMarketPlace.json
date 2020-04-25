@@ -1,0 +1,38 @@
+{
+    "name": "ContractMarketPlace",
+    "fields": [
+        {
+            "fieldName": "contractId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "marketPlaceType",
+            "fieldType": "MarketPlaceType",
+            "fieldValues": "FOND,OTC,Currency"
+        },
+        {
+            "fieldName": "dateAdd",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "contract",
+            "otherEntityRelationshipName": "contractMarketPlace",
+            "relationshipName": "contractId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200425165900",
+    "entityTableName": "contract_market_place",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

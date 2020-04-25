@@ -1,0 +1,44 @@
+{
+    "name": "Contract",
+    "fields": [
+        {
+            "fieldName": "clientId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "channelType",
+            "fieldType": "ChannelType",
+            "fieldValues": "VSP,ONLINE"
+        },
+        {
+            "fieldName": "dateAdd",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "contractMarketPlace",
+            "otherEntityRelationshipName": "contractId",
+            "relationshipName": "contractMarketPlace"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "contract",
+            "relationshipName": "clientId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200425165800",
+    "entityTableName": "contract",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
