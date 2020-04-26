@@ -17,7 +17,7 @@ import { mapIdList } from 'app/shared/util/entity-utils';
 export interface IContractUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const ContractUpdate = (props: IContractUpdateProps) => {
-  const [clientIdId, setClientIdId] = useState('0');
+  const [clientId, setClientId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
   const { contractEntity, clients, loading, updating } = props;
@@ -81,12 +81,6 @@ export const ContractUpdate = (props: IContractUpdateProps) => {
                 </AvGroup>
               ) : null}
               <AvGroup>
-                <Label id="clientIdLabel" for="contract-clientId">
-                  <Translate contentKey="jhipsterFirstApplicationApp.contract.clientId">Client Id</Translate>
-                </Label>
-                <AvField id="contract-clientId" type="string" className="form-control" name="clientId" />
-              </AvGroup>
-              <AvGroup>
                 <Label id="channelTypeLabel" for="contract-channelType">
                   <Translate contentKey="jhipsterFirstApplicationApp.contract.channelType">Channel Type</Translate>
                 </Label>
@@ -108,10 +102,10 @@ export const ContractUpdate = (props: IContractUpdateProps) => {
                 <AvField id="contract-dateAdd" type="text" name="dateAdd" />
               </AvGroup>
               <AvGroup>
-                <Label for="contract-clientId">
-                  <Translate contentKey="jhipsterFirstApplicationApp.contract.clientId">Client Id</Translate>
+                <Label for="contract-client">
+                  <Translate contentKey="jhipsterFirstApplicationApp.contract.client">Client</Translate>
                 </Label>
-                <AvInput id="contract-clientId" type="select" className="form-control" name="clientId.id">
+                <AvInput id="contract-client" type="select" className="form-control" name="client.id">
                   <option value="" key="0" />
                   {clients
                     ? clients.map(otherEntity => (

@@ -2,10 +2,6 @@
     "name": "Contact",
     "fields": [
         {
-            "fieldName": "clientId",
-            "fieldType": "Long"
-        },
-        {
             "fieldName": "contactType",
             "fieldType": "ContactType",
             "fieldValues": "Mobile,Email"
@@ -20,7 +16,7 @@
             "relationshipType": "many-to-one",
             "otherEntityName": "client",
             "otherEntityRelationshipName": "contact",
-            "relationshipName": "clientId",
+            "relationshipName": "client",
             "otherEntityField": "id"
         }
     ],

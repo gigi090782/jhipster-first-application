@@ -33,9 +33,6 @@ import ru.krasilova.myapp.domain.enumeration.MarketPlaceType;
 @WithMockUser
 public class ContractMarketPlaceResourceIT {
 
-    private static final Long DEFAULT_CONTRACT_ID = 1L;
-    private static final Long UPDATED_CONTRACT_ID = 2L;
-
     private static final MarketPlaceType DEFAULT_MARKET_PLACE_TYPE = MarketPlaceType.FOND;
     private static final MarketPlaceType UPDATED_MARKET_PLACE_TYPE = MarketPlaceType.OTC;
 
@@ -64,7 +61,6 @@ public class ContractMarketPlaceResourceIT {
      */
     public static ContractMarketPlace createEntity(EntityManager em) {
         ContractMarketPlace contractMarketPlace = new ContractMarketPlace()
-            .contractId(DEFAULT_CONTRACT_ID)
             .marketPlaceType(DEFAULT_MARKET_PLACE_TYPE)
             .dateAdd(DEFAULT_DATE_ADD);
         return contractMarketPlace;
@@ -77,7 +73,6 @@ public class ContractMarketPlaceResourceIT {
      */
     public static ContractMarketPlace createUpdatedEntity(EntityManager em) {
         ContractMarketPlace contractMarketPlace = new ContractMarketPlace()
-            .contractId(UPDATED_CONTRACT_ID)
             .marketPlaceType(UPDATED_MARKET_PLACE_TYPE)
             .dateAdd(UPDATED_DATE_ADD);
         return contractMarketPlace;
@@ -103,7 +98,6 @@ public class ContractMarketPlaceResourceIT {
         List<ContractMarketPlace> contractMarketPlaceList = contractMarketPlaceRepository.findAll();
         assertThat(contractMarketPlaceList).hasSize(databaseSizeBeforeCreate + 1);
         ContractMarketPlace testContractMarketPlace = contractMarketPlaceList.get(contractMarketPlaceList.size() - 1);
-        assertThat(testContractMarketPlace.getContractId()).isEqualTo(DEFAULT_CONTRACT_ID);
         assertThat(testContractMarketPlace.getMarketPlaceType()).isEqualTo(DEFAULT_MARKET_PLACE_TYPE);
         assertThat(testContractMarketPlace.getDateAdd()).isEqualTo(DEFAULT_DATE_ADD);
     }
@@ -139,7 +133,6 @@ public class ContractMarketPlaceResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(contractMarketPlace.getId().intValue())))
-            .andExpect(jsonPath("$.[*].contractId").value(hasItem(DEFAULT_CONTRACT_ID.intValue())))
             .andExpect(jsonPath("$.[*].marketPlaceType").value(hasItem(DEFAULT_MARKET_PLACE_TYPE.toString())))
             .andExpect(jsonPath("$.[*].dateAdd").value(hasItem(DEFAULT_DATE_ADD)));
     }
@@ -155,7 +148,6 @@ public class ContractMarketPlaceResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(contractMarketPlace.getId().intValue()))
-            .andExpect(jsonPath("$.contractId").value(DEFAULT_CONTRACT_ID.intValue()))
             .andExpect(jsonPath("$.marketPlaceType").value(DEFAULT_MARKET_PLACE_TYPE.toString()))
             .andExpect(jsonPath("$.dateAdd").value(DEFAULT_DATE_ADD));
     }
@@ -181,7 +173,6 @@ public class ContractMarketPlaceResourceIT {
         // Disconnect from session so that the updates on updatedContractMarketPlace are not directly saved in db
         em.detach(updatedContractMarketPlace);
         updatedContractMarketPlace
-            .contractId(UPDATED_CONTRACT_ID)
             .marketPlaceType(UPDATED_MARKET_PLACE_TYPE)
             .dateAdd(UPDATED_DATE_ADD);
 
@@ -194,7 +185,6 @@ public class ContractMarketPlaceResourceIT {
         List<ContractMarketPlace> contractMarketPlaceList = contractMarketPlaceRepository.findAll();
         assertThat(contractMarketPlaceList).hasSize(databaseSizeBeforeUpdate);
         ContractMarketPlace testContractMarketPlace = contractMarketPlaceList.get(contractMarketPlaceList.size() - 1);
-        assertThat(testContractMarketPlace.getContractId()).isEqualTo(UPDATED_CONTRACT_ID);
         assertThat(testContractMarketPlace.getMarketPlaceType()).isEqualTo(UPDATED_MARKET_PLACE_TYPE);
         assertThat(testContractMarketPlace.getDateAdd()).isEqualTo(UPDATED_DATE_ADD);
     }

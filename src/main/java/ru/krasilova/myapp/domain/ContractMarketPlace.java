@@ -23,9 +23,6 @@ public class ContractMarketPlace implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "contract_id")
-    private Long contractId;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "market_place_type")
     private MarketPlaceType marketPlaceType;
@@ -35,7 +32,7 @@ public class ContractMarketPlace implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties("contractMarketPlaces")
-    private Contract contractId;
+    private Contract contract;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -44,19 +41,6 @@ public class ContractMarketPlace implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getContractId() {
-        return contractId;
-    }
-
-    public ContractMarketPlace contractId(Long contractId) {
-        this.contractId = contractId;
-        return this;
-    }
-
-    public void setContractId(Long contractId) {
-        this.contractId = contractId;
     }
 
     public MarketPlaceType getMarketPlaceType() {
@@ -85,17 +69,17 @@ public class ContractMarketPlace implements Serializable {
         this.dateAdd = dateAdd;
     }
 
-    public Contract getContractId() {
-        return contractId;
+    public Contract getContract() {
+        return contract;
     }
 
-    public ContractMarketPlace contractId(Contract contract) {
-        this.contractId = contract;
+    public ContractMarketPlace contract(Contract contract) {
+        this.contract = contract;
         return this;
     }
 
-    public void setContractId(Contract contract) {
-        this.contractId = contract;
+    public void setContract(Contract contract) {
+        this.contract = contract;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -119,7 +103,6 @@ public class ContractMarketPlace implements Serializable {
     public String toString() {
         return "ContractMarketPlace{" +
             "id=" + getId() +
-            ", contractId=" + getContractId() +
             ", marketPlaceType='" + getMarketPlaceType() + "'" +
             ", dateAdd='" + getDateAdd() + "'" +
             "}";

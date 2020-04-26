@@ -34,13 +34,13 @@ public class Client implements Serializable {
     @Column(name = "date_add")
     private String dateAdd;
 
-    @OneToMany(mappedBy = "clientId")
+    @OneToMany(mappedBy = "client")
     private Set<Address> addresses = new HashSet<>();
 
-    @OneToMany(mappedBy = "clientId")
+    @OneToMany(mappedBy = "client")
     private Set<Contact> contacts = new HashSet<>();
 
-    @OneToMany(mappedBy = "clientId")
+    @OneToMany(mappedBy = "client")
     private Set<Contract> contracts = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -115,13 +115,13 @@ public class Client implements Serializable {
 
     public Client addAddress(Address address) {
         this.addresses.add(address);
-        address.setClientId(this);
+        address.setClient(this);
         return this;
     }
 
     public Client removeAddress(Address address) {
         this.addresses.remove(address);
-        address.setClientId(null);
+        address.setClient(null);
         return this;
     }
 
@@ -140,13 +140,13 @@ public class Client implements Serializable {
 
     public Client addContact(Contact contact) {
         this.contacts.add(contact);
-        contact.setClientId(this);
+        contact.setClient(this);
         return this;
     }
 
     public Client removeContact(Contact contact) {
         this.contacts.remove(contact);
-        contact.setClientId(null);
+        contact.setClient(null);
         return this;
     }
 
@@ -165,13 +165,13 @@ public class Client implements Serializable {
 
     public Client addContract(Contract contract) {
         this.contracts.add(contract);
-        contract.setClientId(this);
+        contract.setClient(this);
         return this;
     }
 
     public Client removeContract(Contract contract) {
         this.contracts.remove(contract);
-        contract.setClientId(null);
+        contract.setClient(null);
         return this;
     }
 

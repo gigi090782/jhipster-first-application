@@ -3,10 +3,9 @@ import { ContactType } from 'app/shared/model/enumerations/contact-type.model';
 
 export interface IContact {
   id?: number;
-  clientId?: number;
   contactType?: ContactType;
   value?: string;
-  clientId?: IClient;
+  client?: IClient;
 }
 
 export const defaultValue: Readonly<IContact> = {};

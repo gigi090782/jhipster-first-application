@@ -3,10 +3,9 @@ import { MarketPlaceType } from 'app/shared/model/enumerations/market-place-type
 
 export interface IContractMarketPlace {
   id?: number;
-  contractId?: number;
   marketPlaceType?: MarketPlaceType;
   dateAdd?: string;
-  contractId?: IContract;
+  contract?: IContract;
 }
 
 export const defaultValue: Readonly<IContractMarketPlace> = {};

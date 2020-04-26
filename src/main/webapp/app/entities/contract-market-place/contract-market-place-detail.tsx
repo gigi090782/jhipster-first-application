@@ -27,12 +27,6 @@ export const ContractMarketPlaceDetail = (props: IContractMarketPlaceDetailProps
         </h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="contractId">
-              <Translate contentKey="jhipsterFirstApplicationApp.contractMarketPlace.contractId">Contract Id</Translate>
-            </span>
-          </dt>
-          <dd>{contractMarketPlaceEntity.contractId}</dd>
-          <dt>
             <span id="marketPlaceType">
               <Translate contentKey="jhipsterFirstApplicationApp.contractMarketPlace.marketPlaceType">Market Place Type</Translate>
             </span>
@@ -45,9 +39,9 @@ export const ContractMarketPlaceDetail = (props: IContractMarketPlaceDetailProps
           </dt>
           <dd>{contractMarketPlaceEntity.dateAdd}</dd>
           <dt>
-            <Translate contentKey="jhipsterFirstApplicationApp.contractMarketPlace.contractId">Contract Id</Translate>
+            <Translate contentKey="jhipsterFirstApplicationApp.contractMarketPlace.contract">Contract</Translate>
           </dt>
-          <dd>{contractMarketPlaceEntity.contractId ? contractMarketPlaceEntity.contractId.id : ''}</dd>
+          <dd>{contractMarketPlaceEntity.contract ? contractMarketPlaceEntity.contract.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/contract-market-place" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

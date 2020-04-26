@@ -26,12 +26,6 @@ export const ContactDetail = (props: IContactDetailProps) => {
         </h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="clientId">
-              <Translate contentKey="jhipsterFirstApplicationApp.contact.clientId">Client Id</Translate>
-            </span>
-          </dt>
-          <dd>{contactEntity.clientId}</dd>
-          <dt>
             <span id="contactType">
               <Translate contentKey="jhipsterFirstApplicationApp.contact.contactType">Contact Type</Translate>
             </span>
@@ -44,9 +38,9 @@ export const ContactDetail = (props: IContactDetailProps) => {
           </dt>
           <dd>{contactEntity.value}</dd>
           <dt>
-            <Translate contentKey="jhipsterFirstApplicationApp.contact.clientId">Client Id</Translate>
+            <Translate contentKey="jhipsterFirstApplicationApp.contact.client">Client</Translate>
           </dt>
-          <dd>{contactEntity.clientId ? contactEntity.clientId.id : ''}</dd>
+          <dd>{contactEntity.client ? contactEntity.client.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/contact" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

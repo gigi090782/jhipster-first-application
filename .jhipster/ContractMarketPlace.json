@@ -2,10 +2,6 @@
     "name": "ContractMarketPlace",
     "fields": [
         {
-            "fieldName": "contractId",
-            "fieldType": "Long"
-        },
-        {
             "fieldName": "marketPlaceType",
             "fieldType": "MarketPlaceType",
             "fieldValues": "FOND,OTC,Currency"
@@ -20,7 +16,7 @@
             "relationshipType": "many-to-one",
             "otherEntityName": "contract",
             "otherEntityRelationshipName": "contractMarketPlace",
-            "relationshipName": "contractId",
+            "relationshipName": "contract",
             "otherEntityField": "id"
         }
     ],

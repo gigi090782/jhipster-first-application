@@ -16,10 +16,9 @@
       "detail": {
         "title": "Contract Market Place"
       },
-      "contractId": "Contract Id",
       "marketPlaceType": "Market Place Type",
       "dateAdd": "Date Add",
-      "contractId": "Contract Id"
+      "contract": "Contract"
     }
   }
 }

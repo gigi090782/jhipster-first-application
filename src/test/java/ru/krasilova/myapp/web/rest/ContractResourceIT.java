@@ -33,9 +33,6 @@ import ru.krasilova.myapp.domain.enumeration.ChannelType;
 @WithMockUser
 public class ContractResourceIT {
 
-    private static final Long DEFAULT_CLIENT_ID = 1L;
-    private static final Long UPDATED_CLIENT_ID = 2L;
-
     private static final ChannelType DEFAULT_CHANNEL_TYPE = ChannelType.VSP;
     private static final ChannelType UPDATED_CHANNEL_TYPE = ChannelType.ONLINE;
 
@@ -64,7 +61,6 @@ public class ContractResourceIT {
      */
     public static Contract createEntity(EntityManager em) {
         Contract contract = new Contract()
-            .clientId(DEFAULT_CLIENT_ID)
             .channelType(DEFAULT_CHANNEL_TYPE)
             .dateAdd(DEFAULT_DATE_ADD);
         return contract;
@@ -77,7 +73,6 @@ public class ContractResourceIT {
      */
     public static Contract createUpdatedEntity(EntityManager em) {
         Contract contract = new Contract()
-            .clientId(UPDATED_CLIENT_ID)
             .channelType(UPDATED_CHANNEL_TYPE)
             .dateAdd(UPDATED_DATE_ADD);
         return contract;
@@ -103,7 +98,6 @@ public class ContractResourceIT {
         List<Contract> contractList = contractRepository.findAll();
         assertThat(contractList).hasSize(databaseSizeBeforeCreate + 1);
         Contract testContract = contractList.get(contractList.size() - 1);
-        assertThat(testContract.getClientId()).isEqualTo(DEFAULT_CLIENT_ID);
         assertThat(testContract.getChannelType()).isEqualTo(DEFAULT_CHANNEL_TYPE);
         assertThat(testContract.getDateAdd()).isEqualTo(DEFAULT_DATE_ADD);
     }
@@ -139,7 +133,6 @@ public class ContractResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(contract.getId().intValue())))
-            .andExpect(jsonPath("$.[*].clientId").value(hasItem(DEFAULT_CLIENT_ID.intValue())))
             .andExpect(jsonPath("$.[*].channelType").value(hasItem(DEFAULT_CHANNEL_TYPE.toString())))
             .andExpect(jsonPath("$.[*].dateAdd").value(hasItem(DEFAULT_DATE_ADD)));
     }
@@ -155,7 +148,6 @@ public class ContractResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(contract.getId().intValue()))
-            .andExpect(jsonPath("$.clientId").value(DEFAULT_CLIENT_ID.intValue()))
             .andExpect(jsonPath("$.channelType").value(DEFAULT_CHANNEL_TYPE.toString()))
             .andExpect(jsonPath("$.dateAdd").value(DEFAULT_DATE_ADD));
     }
@@ -181,7 +173,6 @@ public class ContractResourceIT {
         // Disconnect from session so that the updates on updatedContract are not directly saved in db
         em.detach(updatedContract);
         updatedContract
-            .clientId(UPDATED_CLIENT_ID)
             .channelType(UPDATED_CHANNEL_TYPE)
             .dateAdd(UPDATED_DATE_ADD);
 
@@ -194,7 +185,6 @@ public class ContractResourceIT {
         List<Contract> contractList = contractRepository.findAll();
         assertThat(contractList).hasSize(databaseSizeBeforeUpdate);
         Contract testContract = contractList.get(contractList.size() - 1);
-        assertThat(testContract.getClientId()).isEqualTo(UPDATED_CLIENT_ID);
         assertThat(testContract.getChannelType()).isEqualTo(UPDATED_CHANNEL_TYPE);
         assertThat(testContract.getDateAdd()).isEqualTo(UPDATED_DATE_ADD);
     }

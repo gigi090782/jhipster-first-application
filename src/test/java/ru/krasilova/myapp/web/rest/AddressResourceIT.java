@@ -33,9 +33,6 @@ import ru.krasilova.myapp.domain.enumeration.AddressType;
 @WithMockUser
 public class AddressResourceIT {
 
-    private static final Long DEFAULT_CLIENT_ID = 1L;
-    private static final Long UPDATED_CLIENT_ID = 2L;
-
     private static final AddressType DEFAULT_ADDRESS_TYPE = AddressType.Post;
     private static final AddressType UPDATED_ADDRESS_TYPE = AddressType.Registration;
 
@@ -64,7 +61,6 @@ public class AddressResourceIT {
      */
     public static Address createEntity(EntityManager em) {
         Address address = new Address()
-            .clientId(DEFAULT_CLIENT_ID)
             .addressType(DEFAULT_ADDRESS_TYPE)
             .value(DEFAULT_VALUE);
         return address;
@@ -77,7 +73,6 @@ public class AddressResourceIT {
      */
     public static Address createUpdatedEntity(EntityManager em) {
         Address address = new Address()
-            .clientId(UPDATED_CLIENT_ID)
             .addressType(UPDATED_ADDRESS_TYPE)
             .value(UPDATED_VALUE);
         return address;
@@ -103,7 +98,6 @@ public class AddressResourceIT {
         List<Address> addressList = addressRepository.findAll();
         assertThat(addressList).hasSize(databaseSizeBeforeCreate + 1);
         Address testAddress = addressList.get(addressList.size() - 1);
-        assertThat(testAddress.getClientId()).isEqualTo(DEFAULT_CLIENT_ID);
         assertThat(testAddress.getAddressType()).isEqualTo(DEFAULT_ADDRESS_TYPE);
         assertThat(testAddress.getValue()).isEqualTo(DEFAULT_VALUE);
     }
@@ -139,7 +133,6 @@ public class AddressResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(address.getId().intValue())))
-            .andExpect(jsonPath("$.[*].clientId").value(hasItem(DEFAULT_CLIENT_ID.intValue())))
             .andExpect(jsonPath("$.[*].addressType").value(hasItem(DEFAULT_ADDRESS_TYPE.toString())))
             .andExpect(jsonPath("$.[*].value").value(hasItem(DEFAULT_VALUE)));
     }
@@ -155,7 +148,6 @@ public class AddressResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(address.getId().intValue()))
-            .andExpect(jsonPath("$.clientId").value(DEFAULT_CLIENT_ID.intValue()))
             .andExpect(jsonPath("$.addressType").value(DEFAULT_ADDRESS_TYPE.toString()))
             .andExpect(jsonPath("$.value").value(DEFAULT_VALUE));
     }
@@ -181,7 +173,6 @@ public class AddressResourceIT {
         // Disconnect from session so that the updates on updatedAddress are not directly saved in db
         em.detach(updatedAddress);
         updatedAddress
-            .clientId(UPDATED_CLIENT_ID)
             .addressType(UPDATED_ADDRESS_TYPE)
             .value(UPDATED_VALUE);
 
@@ -194,7 +185,6 @@ public class AddressResourceIT {
         List<Address> addressList = addressRepository.findAll();
         assertThat(addressList).hasSize(databaseSizeBeforeUpdate);
         Address testAddress = addressList.get(addressList.size() - 1);
-        assertThat(testAddress.getClientId()).isEqualTo(UPDATED_CLIENT_ID);
         assertThat(testAddress.getAddressType()).isEqualTo(UPDATED_ADDRESS_TYPE);
         assertThat(testAddress.getValue()).isEqualTo(UPDATED_VALUE);
     }

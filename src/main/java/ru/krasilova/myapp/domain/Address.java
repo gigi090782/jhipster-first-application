@@ -23,9 +23,6 @@ public class Address implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "client_id")
-    private Long clientId;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "address_type")
     private AddressType addressType;
@@ -35,7 +32,7 @@ public class Address implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties("addresses")
-    private Client clientId;
+    private Client client;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -44,19 +41,6 @@ public class Address implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getClientId() {
-        return clientId;
-    }
-
-    public Address clientId(Long clientId) {
-        this.clientId = clientId;
-        return this;
-    }
-
-    public void setClientId(Long clientId) {
-        this.clientId = clientId;
     }
 
     public AddressType getAddressType() {
@@ -85,17 +69,17 @@ public class Address implements Serializable {
         this.value = value;
     }
 
-    public Client getClientId() {
-        return clientId;
+    public Client getClient() {
+        return client;
     }
 
-    public Address clientId(Client client) {
-        this.clientId = client;
+    public Address client(Client client) {
+        this.client = client;
         return this;
     }
 
-    public void setClientId(Client client) {
-        this.clientId = client;
+    public void setClient(Client client) {
+        this.client = client;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -119,7 +103,6 @@ public class Address implements Serializable {
     public String toString() {
         return "Address{" +
             "id=" + getId() +
-            ", clientId=" + getClientId() +
             ", addressType='" + getAddressType() + "'" +
             ", value='" + getValue() + "'" +
             "}";

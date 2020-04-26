@@ -16,11 +16,10 @@
       "detail": {
         "title": "Contract"
       },
-      "clientId": "Client Id",
       "channelType": "Channel Type",
       "dateAdd": "Date Add",
       "contractMarketPlace": "Contract Market Place",
-      "clientId": "Client Id"
+      "client": "Client"
     }
   }
 }

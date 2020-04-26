@@ -37,16 +37,13 @@ export const Contact = (props: IContactProps) => {
                   <Translate contentKey="global.field.id">ID</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="jhipsterFirstApplicationApp.contact.clientId">Client Id</Translate>
-                </th>
-                <th>
                   <Translate contentKey="jhipsterFirstApplicationApp.contact.contactType">Contact Type</Translate>
                 </th>
                 <th>
                   <Translate contentKey="jhipsterFirstApplicationApp.contact.value">Value</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="jhipsterFirstApplicationApp.contact.clientId">Client Id</Translate>
+                  <Translate contentKey="jhipsterFirstApplicationApp.contact.client">Client</Translate>
                 </th>
                 <th />
               </tr>
@@ -59,12 +56,11 @@ export const Contact = (props: IContactProps) => {
                       {contact.id}
                     </Button>
                   </td>
-                  <td>{contact.clientId}</td>
                   <td>
                     <Translate contentKey={`jhipsterFirstApplicationApp.ContactType.${contact.contactType}`} />
                   </td>
                   <td>{contact.value}</td>
-                  <td>{contact.clientId ? <Link to={`client/${contact.clientId.id}`}>{contact.clientId.id}</Link> : ''}</td>
+                  <td>{contact.client ? <Link to={`client/${contact.client.id}`}>{contact.client.id}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${contact.id}`} color="info" size="sm">

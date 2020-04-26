@@ -26,12 +26,6 @@ export const ContractDetail = (props: IContractDetailProps) => {
         </h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="clientId">
-              <Translate contentKey="jhipsterFirstApplicationApp.contract.clientId">Client Id</Translate>
-            </span>
-          </dt>
-          <dd>{contractEntity.clientId}</dd>
-          <dt>
             <span id="channelType">
               <Translate contentKey="jhipsterFirstApplicationApp.contract.channelType">Channel Type</Translate>
             </span>
@@ -44,9 +38,9 @@ export const ContractDetail = (props: IContractDetailProps) => {
           </dt>
           <dd>{contractEntity.dateAdd}</dd>
           <dt>
-            <Translate contentKey="jhipsterFirstApplicationApp.contract.clientId">Client Id</Translate>
+            <Translate contentKey="jhipsterFirstApplicationApp.contract.client">Client</Translate>
           </dt>
-          <dd>{contractEntity.clientId ? contractEntity.clientId.id : ''}</dd>
+          <dd>{contractEntity.client ? contractEntity.client.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/contract" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}
