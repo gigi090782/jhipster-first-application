@@ -17,7 +17,7 @@ import { mapIdList } from 'app/shared/util/entity-utils';
 export interface IContractMarketPlaceUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const ContractMarketPlaceUpdate = (props: IContractMarketPlaceUpdateProps) => {
-  const [contractIdId, setContractIdId] = useState('0');
+  const [contractId, setContractId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
   const { contractMarketPlaceEntity, contracts, loading, updating } = props;
@@ -83,12 +83,6 @@ export const ContractMarketPlaceUpdate = (props: IContractMarketPlaceUpdateProps
                 </AvGroup>
               ) : null}
               <AvGroup>
-                <Label id="contractIdLabel" for="contract-market-place-contractId">
-                  <Translate contentKey="jhipsterFirstApplicationApp.contractMarketPlace.contractId">Contract Id</Translate>
-                </Label>
-                <AvField id="contract-market-place-contractId" type="string" className="form-control" name="contractId" />
-              </AvGroup>
-              <AvGroup>
                 <Label id="marketPlaceTypeLabel" for="contract-market-place-marketPlaceType">
                   <Translate contentKey="jhipsterFirstApplicationApp.contractMarketPlace.marketPlaceType">Market Place Type</Translate>
                 </Label>
@@ -111,10 +105,10 @@ export const ContractMarketPlaceUpdate = (props: IContractMarketPlaceUpdateProps
                 <AvField id="contract-market-place-dateAdd" type="text" name="dateAdd" />
               </AvGroup>
               <AvGroup>
-                <Label for="contract-market-place-contractId">
-                  <Translate contentKey="jhipsterFirstApplicationApp.contractMarketPlace.contractId">Contract Id</Translate>
+                <Label for="contract-market-place-contract">
+                  <Translate contentKey="jhipsterFirstApplicationApp.contractMarketPlace.contract">Contract</Translate>
                 </Label>
-                <AvInput id="contract-market-place-contractId" type="select" className="form-control" name="contractId.id">
+                <AvInput id="contract-market-place-contract" type="select" className="form-control" name="contract.id">
                   <option value="" key="0" />
                   {contracts
                     ? contracts.map(otherEntity => (

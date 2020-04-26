@@ -39,16 +39,13 @@ export const ContractMarketPlace = (props: IContractMarketPlaceProps) => {
                   <Translate contentKey="global.field.id">ID</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="jhipsterFirstApplicationApp.contractMarketPlace.contractId">Contract Id</Translate>
-                </th>
-                <th>
                   <Translate contentKey="jhipsterFirstApplicationApp.contractMarketPlace.marketPlaceType">Market Place Type</Translate>
                 </th>
                 <th>
                   <Translate contentKey="jhipsterFirstApplicationApp.contractMarketPlace.dateAdd">Date Add</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="jhipsterFirstApplicationApp.contractMarketPlace.contractId">Contract Id</Translate>
+                  <Translate contentKey="jhipsterFirstApplicationApp.contractMarketPlace.contract">Contract</Translate>
                 </th>
                 <th />
               </tr>
@@ -61,14 +58,13 @@ export const ContractMarketPlace = (props: IContractMarketPlaceProps) => {
                       {contractMarketPlace.id}
                     </Button>
                   </td>
-                  <td>{contractMarketPlace.contractId}</td>
                   <td>
                     <Translate contentKey={`jhipsterFirstApplicationApp.MarketPlaceType.${contractMarketPlace.marketPlaceType}`} />
                   </td>
                   <td>{contractMarketPlace.dateAdd}</td>
                   <td>
-                    {contractMarketPlace.contractId ? (
-                      <Link to={`contract/${contractMarketPlace.contractId.id}`}>{contractMarketPlace.contractId.id}</Link>
+                    {contractMarketPlace.contract ? (
+                      <Link to={`contract/${contractMarketPlace.contract.id}`}>{contractMarketPlace.contract.id}</Link>
                     ) : (
                       ''
                     )}

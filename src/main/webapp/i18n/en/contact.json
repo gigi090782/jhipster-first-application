@@ -16,10 +16,9 @@
       "detail": {
         "title": "Contact"
       },
-      "clientId": "Client Id",
       "contactType": "Contact Type",
       "value": "Value",
-      "clientId": "Client Id"
+      "client": "Client"
     }
   }
 }

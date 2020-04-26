@@ -64,10 +64,6 @@ export const Contract = (props: IContractProps) => {
                 <th className="hand" onClick={sort('id')}>
                   <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={sort('clientId')}>
-                  <Translate contentKey="jhipsterFirstApplicationApp.contract.clientId">Client Id</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
-                </th>
                 <th className="hand" onClick={sort('channelType')}>
                   <Translate contentKey="jhipsterFirstApplicationApp.contract.channelType">Channel Type</Translate>{' '}
                   <FontAwesomeIcon icon="sort" />
@@ -76,8 +72,7 @@ export const Contract = (props: IContractProps) => {
                   <Translate contentKey="jhipsterFirstApplicationApp.contract.dateAdd">Date Add</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="jhipsterFirstApplicationApp.contract.clientId">Client Id</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="jhipsterFirstApplicationApp.contract.client">Client</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -90,12 +85,11 @@ export const Contract = (props: IContractProps) => {
                       {contract.id}
                     </Button>
                   </td>
-                  <td>{contract.clientId}</td>
                   <td>
                     <Translate contentKey={`jhipsterFirstApplicationApp.ChannelType.${contract.channelType}`} />
                   </td>
                   <td>{contract.dateAdd}</td>
-                  <td>{contract.clientId ? <Link to={`client/${contract.clientId.id}`}>{contract.clientId.id}</Link> : ''}</td>
+                  <td>{contract.client ? <Link to={`client/${contract.client.id}`}>{contract.client.id}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${contract.id}`} color="info" size="sm">

@@ -26,12 +26,6 @@ export const AddressDetail = (props: IAddressDetailProps) => {
         </h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="clientId">
-              <Translate contentKey="jhipsterFirstApplicationApp.address.clientId">Client Id</Translate>
-            </span>
-          </dt>
-          <dd>{addressEntity.clientId}</dd>
-          <dt>
             <span id="addressType">
               <Translate contentKey="jhipsterFirstApplicationApp.address.addressType">Address Type</Translate>
             </span>
@@ -44,9 +38,9 @@ export const AddressDetail = (props: IAddressDetailProps) => {
           </dt>
           <dd>{addressEntity.value}</dd>
           <dt>
-            <Translate contentKey="jhipsterFirstApplicationApp.address.clientId">Client Id</Translate>
+            <Translate contentKey="jhipsterFirstApplicationApp.address.client">Client</Translate>
           </dt>
-          <dd>{addressEntity.clientId ? addressEntity.clientId.id : ''}</dd>
+          <dd>{addressEntity.client ? addressEntity.client.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/address" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

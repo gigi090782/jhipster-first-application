@@ -16,10 +16,9 @@
       "detail": {
         "title": "Address"
       },
-      "clientId": "Client Id",
       "addressType": "Address Type",
       "value": "Value",
-      "clientId": "Client Id"
+      "client": "Client"
     }
   }
 }

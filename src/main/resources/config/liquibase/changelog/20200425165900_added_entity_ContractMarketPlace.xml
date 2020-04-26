@@ -15,16 +15,13 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="contract_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
             <column name="market_place_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="date_add" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="contract_id_id" type="bigint">
+            <column name="contract_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
@@ -50,7 +47,6 @@
                   separator=";"
                   tableName="contract_market_place">
             <column name="id" type="numeric"/>
-            <column name="contract_id" type="numeric"/>
             <column name="market_place_type" type="string"/>
             <column name="date_add" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->

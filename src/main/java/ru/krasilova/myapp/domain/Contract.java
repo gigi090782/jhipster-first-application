@@ -25,9 +25,6 @@ public class Contract implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "client_id")
-    private Long clientId;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "channel_type")
     private ChannelType channelType;
@@ -35,12 +32,12 @@ public class Contract implements Serializable {
     @Column(name = "date_add")
     private String dateAdd;
 
-    @OneToMany(mappedBy = "contractId")
+    @OneToMany(mappedBy = "contract")
     private Set<ContractMarketPlace> contractMarketPlaces = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties("contracts")
-    private Client clientId;
+    private Client client;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -49,19 +46,6 @@ public class Contract implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getClientId() {
-        return clientId;
-    }
-
-    public Contract clientId(Long clientId) {
-        this.clientId = clientId;
-        return this;
-    }
-
-    public void setClientId(Long clientId) {
-        this.clientId = clientId;
     }
 
     public ChannelType getChannelType() {
@@ -101,13 +85,13 @@ public class Contract implements Serializable {
 
     public Contract addContractMarketPlace(ContractMarketPlace contractMarketPlace) {
         this.contractMarketPlaces.add(contractMarketPlace);
-        contractMarketPlace.setContractId(this);
+        contractMarketPlace.setContract(this);
         return this;
     }
 
     public Contract removeContractMarketPlace(ContractMarketPlace contractMarketPlace) {
         this.contractMarketPlaces.remove(contractMarketPlace);
-        contractMarketPlace.setContractId(null);
+        contractMarketPlace.setContract(null);
         return this;
     }
 
@@ -115,17 +99,17 @@ public class Contract implements Serializable {
         this.contractMarketPlaces = contractMarketPlaces;
     }
 
-    public Client getClientId() {
-        return clientId;
+    public Client getClient() {
+        return client;
     }
 
-    public Contract clientId(Client client) {
-        this.clientId = client;
+    public Contract client(Client client) {
+        this.client = client;
         return this;
     }
 
-    public void setClientId(Client client) {
-        this.clientId = client;
+    public void setClient(Client client) {
+        this.client = client;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -149,7 +133,6 @@ public class Contract implements Serializable {
     public String toString() {
         return "Contract{" +
             "id=" + getId() +
-            ", clientId=" + getClientId() +
             ", channelType='" + getChannelType() + "'" +
             ", dateAdd='" + getDateAdd() + "'" +
             "}";

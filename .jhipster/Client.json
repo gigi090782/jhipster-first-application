@@ -22,19 +22,19 @@
         {
             "relationshipType": "one-to-many",
             "otherEntityName": "address",
-            "otherEntityRelationshipName": "clientId",
+            "otherEntityRelationshipName": "client",
             "relationshipName": "address"
         },
         {
             "relationshipType": "one-to-many",
             "otherEntityName": "contact",
-            "otherEntityRelationshipName": "clientId",
+            "otherEntityRelationshipName": "client",
             "relationshipName": "contact"
         },
         {
             "relationshipType": "one-to-many",
             "otherEntityName": "contract",
-            "otherEntityRelationshipName": "clientId",
+            "otherEntityRelationshipName": "client",
             "relationshipName": "contract"
         }
     ],

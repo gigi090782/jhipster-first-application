@@ -2,10 +2,6 @@
     "name": "Contract",
     "fields": [
         {
-            "fieldName": "clientId",
-            "fieldType": "Long"
-        },
-        {
             "fieldName": "channelType",
             "fieldType": "ChannelType",
             "fieldValues": "VSP,ONLINE"
@@ -19,14 +15,14 @@
         {
             "relationshipType": "one-to-many",
             "otherEntityName": "contractMarketPlace",
-            "otherEntityRelationshipName": "contractId",
+            "otherEntityRelationshipName": "contract",
             "relationshipName": "contractMarketPlace"
         },
         {
             "relationshipType": "many-to-one",
             "otherEntityName": "client",
             "otherEntityRelationshipName": "contract",
-            "relationshipName": "clientId",
+            "relationshipName": "client",
             "otherEntityField": "id"
         }
     ],

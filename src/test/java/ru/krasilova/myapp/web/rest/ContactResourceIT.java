@@ -33,9 +33,6 @@ import ru.krasilova.myapp.domain.enumeration.ContactType;
 @WithMockUser
 public class ContactResourceIT {
 
-    private static final Long DEFAULT_CLIENT_ID = 1L;
-    private static final Long UPDATED_CLIENT_ID = 2L;
-
     private static final ContactType DEFAULT_CONTACT_TYPE = ContactType.Mobile;
     private static final ContactType UPDATED_CONTACT_TYPE = ContactType.Email;
 
@@ -64,7 +61,6 @@ public class ContactResourceIT {
      */
     public static Contact createEntity(EntityManager em) {
         Contact contact = new Contact()
-            .clientId(DEFAULT_CLIENT_ID)
             .contactType(DEFAULT_CONTACT_TYPE)
             .value(DEFAULT_VALUE);
         return contact;
@@ -77,7 +73,6 @@ public class ContactResourceIT {
      */
     public static Contact createUpdatedEntity(EntityManager em) {
         Contact contact = new Contact()
-            .clientId(UPDATED_CLIENT_ID)
             .contactType(UPDATED_CONTACT_TYPE)
             .value(UPDATED_VALUE);
         return contact;
@@ -103,7 +98,6 @@ public class ContactResourceIT {
         List<Contact> contactList = contactRepository.findAll();
         assertThat(contactList).hasSize(databaseSizeBeforeCreate + 1);
         Contact testContact = contactList.get(contactList.size() - 1);
-        assertThat(testContact.getClientId()).isEqualTo(DEFAULT_CLIENT_ID);
         assertThat(testContact.getContactType()).isEqualTo(DEFAULT_CONTACT_TYPE);
         assertThat(testContact.getValue()).isEqualTo(DEFAULT_VALUE);
     }
@@ -139,7 +133,6 @@ public class ContactResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(contact.getId().intValue())))
-            .andExpect(jsonPath("$.[*].clientId").value(hasItem(DEFAULT_CLIENT_ID.intValue())))
             .andExpect(jsonPath("$.[*].contactType").value(hasItem(DEFAULT_CONTACT_TYPE.toString())))
             .andExpect(jsonPath("$.[*].value").value(hasItem(DEFAULT_VALUE)));
     }
@@ -155,7 +148,6 @@ public class ContactResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(contact.getId().intValue()))
-            .andExpect(jsonPath("$.clientId").value(DEFAULT_CLIENT_ID.intValue()))
             .andExpect(jsonPath("$.contactType").value(DEFAULT_CONTACT_TYPE.toString()))
             .andExpect(jsonPath("$.value").value(DEFAULT_VALUE));
     }
@@ -181,7 +173,6 @@ public class ContactResourceIT {
         // Disconnect from session so that the updates on updatedContact are not directly saved in db
         em.detach(updatedContact);
         updatedContact
-            .clientId(UPDATED_CLIENT_ID)
             .contactType(UPDATED_CONTACT_TYPE)
             .value(UPDATED_VALUE);
 
@@ -194,7 +185,6 @@ public class ContactResourceIT {
         List<Contact> contactList = contactRepository.findAll();
         assertThat(contactList).hasSize(databaseSizeBeforeUpdate);
         Contact testContact = contactList.get(contactList.size() - 1);
-        assertThat(testContact.getClientId()).isEqualTo(UPDATED_CLIENT_ID);
         assertThat(testContact.getContactType()).isEqualTo(UPDATED_CONTACT_TYPE);
         assertThat(testContact.getValue()).isEqualTo(UPDATED_VALUE);
     }

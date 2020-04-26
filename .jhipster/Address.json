@@ -2,10 +2,6 @@
     "name": "Address",
     "fields": [
         {
-            "fieldName": "clientId",
-            "fieldType": "Long"
-        },
-        {
             "fieldName": "addressType",
             "fieldType": "AddressType",
             "fieldValues": "Post,Registration"
@@ -20,7 +16,7 @@
             "relationshipType": "many-to-one",
             "otherEntityName": "client",
             "otherEntityRelationshipName": "address",
-            "relationshipName": "clientId",
+            "relationshipName": "client",
             "otherEntityField": "id"
         }
     ],
